@@ -34,7 +34,7 @@ export function Header() {
 
           <nav className="hidden md:flex items-center gap-10">
             <a
-              href="#productos"
+              href="/productos"
               className={`text-base font-medium tracking-wide transition-colors ${
                 scrolled ? "text-foreground/70 hover:text-foreground" : "text-white/80 hover:text-white"
               }`}
@@ -98,7 +98,7 @@ export function Header() {
       {menuOpen && (
         <div className="md:hidden bg-background border-t border-border">
           <nav className="flex flex-col px-6 py-6 gap-4">
-            <a href="#productos" className="text-lg text-foreground/70 hover:text-foreground">
+            <a href="/productos" className="text-lg text-foreground/70 hover:text-foreground">
               Productos
             </a>
             <a href="#soluciones" className="text-lg text-foreground/70 hover:text-foreground">
