@@ -270,6 +270,7 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Imagen</label>
                                 <input type="file" id="swal-image" accept="image/*" class="block w-full text-sm text-gray-700 bg-white border border-gray-200 rounded-md px-3 py-2 shadow-sm" />
                                 <p class="text-xs text-muted-foreground mt-2">Formato recomendado: JPEG/PNG/WebP. Máx 2MB.</p>
+                                <div id="swal-image-preview" class="mt-2 text-sm text-muted-foreground"></div>
                             </div>
                         </div>
                     </div>
@@ -452,7 +453,21 @@
                             if (category.parent_id) {
                                 const el = document.getElementById('swal-parent_id'); if (el) el.value = category.parent_id;
                             }
-                            // Si hay imagen previa podríamos mostrar vista previa más tarde
+                            // Mostrar nombre/miniatura de la imagen existente (si aplica)
+                            try {
+                                const previewEl = document.getElementById('swal-image-preview');
+                                if (previewEl) {
+                                    if (category && category.image) {
+                                        const filename = category.image.split('/').pop();
+                                        const imageUrl = category.image.startsWith('http') ? category.image : ('/storage/' + category.image);
+                                        previewEl.innerHTML = `\n                                            <div class="flex items-center gap-3">\n                                                <img src="${imageUrl}" alt="${filename}" class="h-12 w-12 object-cover rounded" onerror="this.style.display='none'" />\n                                                <div>\n                                                    <div class="font-medium">${filename}</div>\n                                                    <a href="${imageUrl}" target="_blank" class="text-sm text-[#1e3a5f]">Ver imagen</a>\n                                                </div>\n                                            </div>\n                                        `;
+                                    } else {
+                                        previewEl.innerHTML = '<span class="text-sm text-muted-foreground">No hay imagen subida</span>';
+                                    }
+                                }
+                            } catch (e) {
+                                console.warn('Error mostrando preview de imagen:', e);
+                            }
                         },
                         preConfirm: () => {
                             const name_es = document.getElementById('swal-name_es').value;

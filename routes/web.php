@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('/{category}', [CategoriesController::class, 'destroy'])->name('destroy');
         Route::patch('/{category}/toggle-active', [CategoriesController::class, 'toggleActive'])->name('toggle-active');
     });
+    //Porductos
+    
 });
 
 require __DIR__.'/auth.php';
