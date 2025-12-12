@@ -90,10 +90,10 @@
             <table id="categoriesTable" class="w-full">
                 <thead>
                     <tr class="bg-muted/50">
-                        <th class="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">ID</th>
+                        {{-- <th class="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">ID</th> --}}
                         <th class="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">Categoría</th>
                         <th class="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">Descripción</th>
-                        <th class="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">Padre</th>
+                        {{-- <th class="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">Padre</th> --}}
                         <th class="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">Estado</th>
                         <th class="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">Fecha</th>
                         <th class="px-6 py-3 text-right text-xs font-semibold text-muted-foreground uppercase tracking-wider">Acciones</th>
@@ -102,7 +102,7 @@
                 <tbody class="divide-y divide-border" id="categoriesTableBody">
                     @forelse($categories as $category)
                     <tr class="hover:bg-muted/30 transition-colors" data-id="{{ $category->id }}">
-                        <td class="px-6 py-4 text-sm text-muted-foreground">{{ $category->id }}</td>
+                        {{-- <td class="px-6 py-4 text-sm text-muted-foreground">{{ $category->id }}</td> --}}
                         <td class="px-6 py-4">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#1e3a5f] to-[#2d4a6f] flex items-center justify-center">
@@ -118,7 +118,7 @@
                             </div>
                         </td>
                         <td class="px-6 py-4 text-sm text-muted-foreground max-w-xs truncate">{{ $category->description_es ?? '-' }}</td>
-                        <td class="px-6 py-4 text-sm text-muted-foreground">{{ $category->parent ? $category->parent->name_es : '-' }}</td>
+                        {{-- <td class="px-6 py-4 text-sm text-muted-foreground">{{ $category->parent ? $category->parent->name_es : '-' }}</td> --}}
                         <td class="px-6 py-4">
                             <button 
                                 class="btn-toggle-active inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium cursor-pointer transition-colors {{ $category->is_active ? 'bg-green-100 text-green-800 hover:bg-green-200' : 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200' }}"
