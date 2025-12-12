@@ -52,7 +52,7 @@ class CategoriesController extends Controller
 
         // Manejar imagen si se sube
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('categories', 'public');
+            $validated['image'] = $request->file('image')->store('categorias', 'public');
         }
 
         // Establecer valores por defecto
@@ -113,7 +113,7 @@ class CategoriesController extends Controller
             if ($category->image) {
                 \Storage::disk('public')->delete($category->image);
             }
-            $validated['image'] = $request->file('image')->store('categories', 'public');
+            $validated['image'] = $request->file('image')->store('categorias', 'public');
         }
 
         $category->update($validated);
